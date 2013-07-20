@@ -1,8 +1,12 @@
 h1 {
     font-family: 'Lobster' sans-serif;
-    font-size: 30px;
+    font-size: 35px;
     color: black;
     margin-top: 0px;
+}
+
+#intro h1 {
+    text-align: center;
 }
 
 html {
@@ -48,8 +52,9 @@ header {
 }
 
 #intro {
+    margin-top: 30px;
     background-color: white;
-    padding: 20px;
+    padding: 25px 40px 25px 40px;
     margin-bottom: 20px;
     border-radius: 5px;
 }
@@ -58,6 +63,11 @@ header {
     width: 800px;
     margin: auto;
     padding: 0px;
+}
+
+a {
+    color: #b02b3e;
+    pointer: hand;
 }
 
 .toggle {
