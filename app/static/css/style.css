@@ -40,7 +40,7 @@ header {
 
 .top-gradient {
     height: 20px;
-    background: url("../images/top-gradient.png")
+    background: url("../images/top-gradient.png");
 }
 
 .bottom-gradient {
@@ -53,6 +53,24 @@ header {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+}
+
+#toggles-container {
+    width: 800px;
+    margin: auto;
+    padding: 0px;
+}
+
+.toggle {
+    height: 147px;
+    width: 90px;
+    background: url("../images/toggle_off.png");
+    margin: 20px 33px 20px 33px;
+    display: inline-block;
+}
+
+.toggled_on {
+    background: url("../images/toggle_on.png");
 }
 
 .clearfix:after {
