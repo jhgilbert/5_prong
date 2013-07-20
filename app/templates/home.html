@@ -2,8 +2,15 @@
 {% block content %}
 <script type="text/javascript">
   $(document).ready(function(){
+    $('#more').hide();
     $('.toggle').on('click', function(){
       $(this).toggleClass("toggled-on");
+    });
+    $('#intro_learn_more').click(function(){
+      $('#more').slideDown(400);
+    })
+    $('#hide_more').click(function(){
+      $('#more').slideUp(400);
     });
   });
 </script>
@@ -13,16 +20,29 @@
   <div class="top-gradient"></div>
   <div class="wood-content">
     <div id="toggles-container">
-    <div class="toggle"><img class="label" src="../static/images/love.png"></div>
-    <div class="toggle"><img class="label" src="../static/images/build.png"></div>
-    <div class="toggle"><img class="label" src="../static/images/move.png"></div>
-    <div class="toggle"><img class="label" src="../static/images/learn.png"></div>
-    <div class="toggle"><img class="label" src="../static/images/help.png"></div>
-      </div>
+      <div class="toggle"><img class="label" src="../static/images/love.png"></div>
+      <div class="toggle"><img class="label" src="../static/images/build.png"></div>
+      <div class="toggle"><img class="label" src="../static/images/move.png"></div>
+      <div class="toggle"><img class="label" src="../static/images/learn.png"></div>
+      <div class="toggle"><img class="label" src="../static/images/help.png"></div>
+    </div>
     <div id="intro">
       <h1>Welcome to Switch.</h1>
-      <p style="text-align: center;">Switch encourages you to live actively without bogging you down with a detailed to-do list.</p>
+      <p style="text-align: center;">Switch encourages you to use your time well &mdash; without any intimidating to-do lists.</p>
       <p style="text-align: center;"><a id="intro_learn_more">Learn more</a></p>
+      <div id="more">
+        <hr>
+        <h2 style="text-align: center;">Just flip the switches on and off as they apply.</h2>
+        <p>Going on a date? That's LOVE. Going on a date to volunteer at a food bank? That's LOVE and HELP.
+          Going on a date where you volunteer for Habitat for Humanity
+          and spend your day honing your construction skills and toning your muscles?
+          That's ... all five. Dang, you're good.</p>
+        <p>Remember, you're a person too, and you can HELP yourself by doing the dishes, going to the DMV, or
+          otherwise taking care of yourself. It's not just about other people. Housework is a great way to HELP and MOVE
+          at the same time!</p>
+        <p>When you're finished with any given category, switch it off. That's it!</p>
+        <p style="text-align: center;"><a id="hide_more">Hide</a></p>
+      </div>
 
     </div>
   </div>
