@@ -35,7 +35,6 @@ header {
 .wood-content {
     max-width: 900px;
     margin: auto;
-    border: 1px solid black;
 }
 
 .top-gradient {
@@ -62,15 +61,16 @@ header {
 }
 
 .toggle {
-    height: 147px;
+    height: 190px;
     width: 90px;
-    background: url("../images/toggle_off.png");
+    background: url("../images/toggle_off.png") bottom no-repeat;
     margin: 20px 33px 20px 33px;
     display: inline-block;
+    text-align: center;
 }
 
 .toggled-on {
-    background: url("../images/toggle_on.png");
+    background: url("../images/toggle_on.png") bottom no-repeat;
 }
 
 .clearfix:after {
