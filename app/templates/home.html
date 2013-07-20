@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="wood-wrapper">
-  <div class="top-gradient">top gradient</div>
+  <div class="top-gradient"></div>
   <div class="wood-content">
     <p>This is the content container.</p>
-    <div style="border: 1px solid black; height: 300px; padding: 20px;">
-      This is a div within the content container.
+    <div id="intro">
+      <h1>This is an h1.</h1>
+      This is where the intro text will go, with an expandable div to learn more.
     </div>
   </div>
-  <div class="bottom-gradient">bottom gradient</div>
+  <div class="bottom-gradient"></div>
 </div>
 {% endblock %}

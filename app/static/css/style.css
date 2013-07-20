@@ -1,15 +1,29 @@
+h1 {
+    font-family: 'Lobster' sans-serif;
+    font-size: 30px;
+    color: black;
+    margin-top: 0px;
+}
+
+html {
+    background-color: #fef6d7;
+}
+
 body {
+    font-family: 'Droid Sans' sans-serif;
     margin: 0px;
     padding: 0px;
 }
 
 header {
     padding: 10px;
+    background-color: #fef6d7;
 }
 
 #footer {
     padding: 10px;
     text-align: center;
+    background-color: #fef6d7;
 }
 
 #wood-wrapper {
@@ -21,15 +35,21 @@ header {
     max-width: 900px;
     margin: auto;
     border: 1px solid black;
-    padding: 20px;
 }
 
 .top-gradient {
-    height: 18px;
-    background-color: green;
+    height: 20px;
+    background: url("../images/top-gradient.png")
 }
 
 .bottom-gradient {
-    height: 18px;
-    background-color: green;
+    height: 20px;
+    background: url("../images/bottom-gradient.png");
+}
+
+#intro {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
