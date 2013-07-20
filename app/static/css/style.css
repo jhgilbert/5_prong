@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    padding: 10px;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+}
+
+#wood-wrapper {
+    background: url("../images/woodgrain.jpg");
+    margin: 0px;
+}
+
+.wood-content {
+    max-width: 900px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.top-gradient {
+    height: 18px;
+    background-color: green;
+}
+
+.bottom-gradient {
+    height: 18px;
+    background-color: green;
+}

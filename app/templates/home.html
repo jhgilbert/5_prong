@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-
-    This is the home template.
-
+<div id="wood-wrapper">
+  <div class="top-gradient">top gradient</div>
+  <div class="wood-content">
+    <p>This is the content container.</p>
+    <div style="border: 1px solid black; height: 300px; padding: 20px;">
+      This is a div within the content container.
+    </div>
+  </div>
+  <div class="bottom-gradient">bottom gradient</div>
+</div>
 {% endblock %}
