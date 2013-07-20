@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.toggle').on('click', function(){
+      $(this).toggleClass("toggled-on");
+    });
+  });
+</script>
+
+
 <div id="wood-wrapper">
   <div class="top-gradient"></div>
   <div class="wood-content">
     <p>This is the content container.</p>
     <div id="toggles-container">
-    <div class="toggle"></div>
-    <div class="toggle"></div>
-    <div class="toggle"></div>
-    <div class="toggle"></div>
-    <div class="toggle"></div>
+    <div class="toggle"><img src="../static/images/love.png"></div>
+    <div class="toggle"><img src="../static/images/build.png"></div>
+    <div class="toggle"><img src="../static/images/move.png"></div>
+    <div class="toggle"><img src="../static/images/learn.png"></div>
+    <div class="toggle"><img src="../static/images/help.png"></div>
       </div>
     <div id="intro">
       <h1>This is an h1.</h1>
