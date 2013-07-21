@@ -45,17 +45,22 @@ def set_current_interval(category, id):
     current_user.current_move = id
   db.session.commit()
 
-def update_elapsed(category, seconds):
+def process_finished_interval(category, seconds):
   if category == 'build':
     current_user.build_total += seconds
+    current_user.current_build = None
   elif category == 'help':
     current_user.help_total += seconds
+    current_user.current_help = None
   elif category == 'learn':
     current_user.learn_total += seconds
+    current_user.current_learn = None
   elif category == 'love':
     current_user.love_total += seconds
+    current_user.current_love = None
   elif category == 'move':
     current_user.move_total += seconds
+    current_user.current_move = None
   db.session.commit()
 
 
@@ -85,8 +90,9 @@ def stop():
     return jsonify(data="No {0} interval is running.".format(category))
   else:
     i.stop = int(time.time())
+    db.session.commit()
     seconds_elapsed = i.stop - i.start
-    update_elapsed(category, seconds_elapsed)
+    process_finished_interval(category, seconds_elapsed)
     return jsonify(data="The {0} interval was stopped.".format(category))
 
 @app.route('/_interval_booleans')
@@ -95,7 +101,7 @@ def interval_booleans():
   categories = ['build', 'help', 'learn', 'love', 'move']
   for c in categories:
     if get_current_interval(c) is not None:
-      intervals[c] = True
+      intervals[c] = 'on'
     else:
-      intervals[c] = False
-  return jsonify(data=intervals)
+      intervals[c] = 'off'
+  return jsonify(intervals)

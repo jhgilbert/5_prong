@@ -4,14 +4,27 @@
   $(document).ready(function(){
     $('#more').hide();
     $.getJSON("/_interval_booleans", function(data) {
-      $('#test').html(data);
+      var values = ['build','help','learn','love','move'];
+      for(var i=0;i<values.length;i++){
+        if(data[values[i]] == 'on'){
+          $('#' + values[i]).addClass('toggled-on');
+        }
+      }
     });
-    $('.toggle').on('click', function(){
+    $('.toggle').on('click', function(event){
       if($(this).hasClass('toggled-on')){
-        // $.ajax();
+        $.ajax({
+          type: "POST",
+          url: "/_stop",
+          data: { category: event.target.id }
+        });
       }
       else {
-        // $.ajax();
+        $.ajax({
+          type: "POST",
+          url: "/_start",
+          data: { category: event.target.id }
+        });
       }
       $(this).toggleClass("toggled-on");
     });
@@ -21,10 +34,19 @@
     $('#hide_more').click(function(){
       $('#more').slideUp(400);
     });
+    setInterval(function(){
+      $.getJSON("/_interval_booleans", function(data) {
+        var values = ['build','help','learn','love','move'];
+        for(var i=0;i<values.length;i++){
+          if(data[values[i]] == 'on'){
+            $('#' + values[i]).addClass('toggled-on');
+          }
+        }
+      });
+    }, 10000);
   });
 </script>
 
-<div id="test">Test div</div>
 <div id="wood-wrapper">
   <div class="top-gradient"></div>
   <div class="wood-content">
