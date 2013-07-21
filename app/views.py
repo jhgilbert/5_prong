@@ -89,5 +89,13 @@ def stop():
     update_elapsed(category, seconds_elapsed)
     return jsonify(data="The {0} interval was stopped.".format(category))
 
-
-
+@app.route('/_interval_booleans')
+def interval_booleans():
+  intervals = {}
+  categories = ['build', 'help', 'learn', 'love', 'move']
+  for c in categories:
+    if get_current_interval(c) is not None:
+      intervals[c] = True
+    else:
+      intervals[c] = False
+  return jsonify(data=intervals)
