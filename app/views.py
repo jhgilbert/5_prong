@@ -6,6 +6,7 @@ import time
 current_user = User.query.get(1)  # this will later be set by Flask login
 
 def get_current_interval(category):
+  current_user = User.query.get(1)
   if category == 'build':
     if current_user.current_build is not None:
       return Interval.query.get(current_user.current_build)
@@ -33,6 +34,7 @@ def get_current_interval(category):
       return None
 
 def set_current_interval(category, id):
+  current_user = User.query.get(1)
   if category == 'build':
     current_user.current_build = id
   elif category == 'help':
@@ -43,9 +45,11 @@ def set_current_interval(category, id):
     current_user.current_love = id
   elif category == 'move':
     current_user.current_move = id
+
   db.session.commit()
 
 def process_finished_interval(category, seconds):
+  current_user = User.query.get(1)
   if category == 'build':
     current_user.build_total += seconds
     current_user.current_build = None
@@ -71,13 +75,14 @@ def home():
 
 @app.route('/_start', methods=["POST"])
 def start():
+  current_user = User.query.get(1)
   category = request.form['category']
   i = get_current_interval(category)
   if i is None:
     i = Interval(category=category, start=int(time.time()), user_id=current_user.id)
     db.session.add(i)
     db.session.commit()
-    set_current_interval(category, i.id)
+    set_current_interval(category, current_user.intervals[-1].id)
     return jsonify(data="A new {0} interval has been started.".format(category))
   else:
     return jsonify(data="A {0} interval was already running.".format(category))

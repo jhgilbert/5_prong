@@ -1,51 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#more').hide();
-    $.getJSON("/_interval_booleans", function(data) {
-      var values = ['build','help','learn','love','move'];
-      for(var i=0;i<values.length;i++){
-        if(data[values[i]] == 'on'){
-          $('#' + values[i]).addClass('toggled-on');
-        }
-      }
-    });
-    $('.toggle').on('click', function(event){
-      if($(this).hasClass('toggled-on')){
-        $.ajax({
-          type: "POST",
-          url: "/_stop",
-          data: { category: event.target.id }
-        });
-      }
-      else {
-        $.ajax({
-          type: "POST",
-          url: "/_start",
-          data: { category: event.target.id }
-        });
-      }
-      $(this).toggleClass("toggled-on");
-    });
-    $('#intro_learn_more').click(function(){
-      $('#more').slideDown(400);
-    })
-    $('#hide_more').click(function(){
-      $('#more').slideUp(400);
-    });
-    setInterval(function(){
-      $.getJSON("/_interval_booleans", function(data) {
-        var values = ['build','help','learn','love','move'];
-        for(var i=0;i<values.length;i++){
-          if(data[values[i]] == 'on'){
-            $('#' + values[i]).addClass('toggled-on');
-          }
-        }
-      });
-    }, 10000);
-  });
-</script>
+<script type="text/javascript" src="../static/scripts/home.js"></script>
 
 <div id="wood-wrapper">
   <div class="top-gradient"></div>
