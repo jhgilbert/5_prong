@@ -10,7 +10,7 @@ interval = Table('interval', post_meta,
     Column('category', String(length=32)),
     Column('start', Integer),
     Column('stop', Integer),
-    Column('running', Boolean),
+    Column('elapsed', Integer),
     Column('note', String(length=255)),
     Column('user_id', Integer),
 )
