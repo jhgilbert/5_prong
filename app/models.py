@@ -27,5 +27,17 @@ class User(db.Model):
   current_move = db.Column(db.Integer)
   intervals = db.relationship('Interval', backref='intervals')
 
+  def is_authenticated(self):
+    return True
+
+  def is_active(self):
+    return True
+
+  def is_anonymous(self):
+    return False
+
+  def get_id(self):
+    return unicode(self.id)
+
   def __repr__(self):
     return '<User {email}, ID {id}>'.format(email=self.email, id=self.id)
