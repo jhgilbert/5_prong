@@ -8,3 +8,7 @@ import time
 @app.route('/home')
 def home():
   return render_template('blog_home.html')
+
+@app.route('/admin')
+def admin():
+  return render_template('blog_admin.html')

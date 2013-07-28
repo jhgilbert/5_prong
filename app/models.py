@@ -22,6 +22,17 @@ class User(db.Model):
   def __repr__(self):
     return '<User {email}, ID {id}>'.format(email=self.email, id=self.id)
 
+# Models for blog
+
+class BlogPost(db.Model):
+  __tablename__ = 'blog_post'
+  id = db.Column(db.Integer, primary_key=True)
+  created_at = db.Column(db.Integer)
+  published_on = db.Column(db.Integer)
+  live = db.Column(db.Boolean)
+  title = db.Column(db.String(255))
+  body = db.Column(db.Text)
+
 # Time Machine models
 
 class TimeMachineProfile(db.Model):
