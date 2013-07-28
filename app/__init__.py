@@ -10,4 +10,4 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 oid = OpenID(app, os.path.join(basedir, 'tmp'))
 
-from app import time_machine, blog, models
+from app import switch, blog, models
