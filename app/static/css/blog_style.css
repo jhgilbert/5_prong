@@ -23,10 +23,10 @@ body {
 }
 
 #main {
-    max-width: 680px;
+    max-width: 670px;
     display: inline-block;
     vertical-align: top;
-    padding-left: 15px;
+    padding-left: 25px;
     margin-top: -5px;
 }
 
