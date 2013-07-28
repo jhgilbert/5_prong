@@ -1,8 +1,11 @@
+'''
 from flask import render_template, jsonify, request, session, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, oid
 from app.models import Interval, User
 import time
+
+'''
 
 '''
 @app.before_request
@@ -22,6 +25,7 @@ def lookup_current_user():
 #  session['remember_me'] = True
 #  return oid.try_login('https://www.google.com/accounts/o8/id')
 
+'''
 current_user = User.query.get(1)  # this will later be set by Flask login
 
 def get_current_interval(category):
@@ -92,13 +96,14 @@ def time_machine():
   return render_template("time_machine.html")
 
 '''
+'''
 @app.route('/login', methods=['GET','POST'])
 @oid.loginhandler
 def login():
   return oid.try_login('https://www.google.com/accounts/o8/id', ask_for['email','fullname','nickname'])
   return render_template('home.html')
 '''
-
+'''
 @app.route('/_start', methods=["POST"])
 def start():
   current_user = User.query.get(1)
@@ -136,3 +141,4 @@ def interval_booleans():
     else:
       intervals[c] = 'off'
   return jsonify(intervals)
+  '''
