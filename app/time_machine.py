@@ -1,7 +1,26 @@
-from app import app, db
+from flask import render_template, jsonify, request, session, g
+from flask.ext.login import login_user, logout_user, current_user, login_required
+from app import app, db, oid
 from app.models import Interval, User
-from flask import render_template, jsonify, request
 import time
+
+'''
+@app.before_request
+def lookup_current_user():
+  g.user = None
+  if 'openid' in session:
+    g.user = User.query.filter_by(openid=openid).first()
+    '''
+
+# @lm.user_loader
+# def load_user(id):
+#  return User.query.get(int(id))
+
+# @app.route('_login', methods = ['POST'])
+# @oid.loginhandler
+# def login():
+#  session['remember_me'] = True
+#  return oid.try_login('https://www.google.com/accounts/o8/id')
 
 current_user = User.query.get(1)  # this will later be set by Flask login
 
@@ -68,10 +87,17 @@ def process_finished_interval(category, seconds):
   db.session.commit()
 
 
-@app.route('/')
-@app.route('/home')
-def home():
-  return render_template("home.html")
+@app.route('/time_machine')
+def time_machine():
+  return render_template("time_machine.html")
+
+'''
+@app.route('/login', methods=['GET','POST'])
+@oid.loginhandler
+def login():
+  return oid.try_login('https://www.google.com/accounts/o8/id', ask_for['email','fullname','nickname'])
+  return render_template('home.html')
+'''
 
 @app.route('/_start', methods=["POST"])
 def start():
